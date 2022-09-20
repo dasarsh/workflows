@@ -27,11 +27,22 @@ jobs:
           echo "- Make toppings" >> $GITHUB_STEP_SUMMARY
           echo "- Assemble and bake" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Ready?" >> $GITHUB_STEP_SUMMARY
+          echo "Ready? Good thing we have staff in this pizzeria... Okay it's just me and my wife." >> $GITHUB_STEP_SUMMARY
+
+  dough:
+    needs: greet
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make dough
+        run: |
+          echo "### Dough :pizza:" >> $GITHUB_STEP_SUMMARY
+          echo "Flour, water, yeast and mix" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "And also let it proof!" >> $GITHUB_STEP_SUMMARY
 
   # This workflow contains a single job called "build"
   build:
-    needs: greet
+    needs: [greet, dough]
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
