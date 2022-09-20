@@ -95,7 +95,7 @@ jobs:
       - name: Charge customer
         run: |
           echo "### At the till :receipt:" >> $GITHUB_STEP_SUMMARY
-          echo "Here's your receipt!" >> $GITHUB_STEP_SUMMARY
+          echo "While that's going on, here's your receipt!" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "No we don't accept Bitcoin here sorry." >> $GITHUB_STEP_SUMMARY
 
@@ -106,7 +106,7 @@ jobs:
     steps:
       - name: Get wood from out back
         run: |
-          echo "### Almost fire time :pizza:" >> $GITHUB_STEP_SUMMARY
+          echo "### Almost fire time :wood:" >> $GITHUB_STEP_SUMMARY
           echo "Oh no wait, let me get some wood for this oven." >> $GITHUB_STEP_SUMMARY
 
   preheat:
