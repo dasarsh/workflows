@@ -16,6 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   greet:
+    name: Welcome customer
     runs-on: ubuntu-latest
     steps:
       - name: Say Hello to whoever is reading this
@@ -30,6 +31,7 @@ jobs:
           echo "Ready? Good thing we have staff in this pizzeria... Okay it's just me and my wife." >> $GITHUB_STEP_SUMMARY
 
   dough:
+    name: Make dough
     needs: greet
     runs-on: ubuntu-latest
     steps:
@@ -41,6 +43,7 @@ jobs:
           echo "Today's crust is going to be... ${{ secrets.CRUST }}" >> $GITHUB_STEP_SUMMARY
 
   toppings:
+    name: Make toppings
     needs: greet
     runs-on: ubuntu-latest
     steps:
@@ -51,9 +54,22 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Today's topping is going to be... ${{ secrets.TOPPINGS }}" >> $GITHUB_STEP_SUMMARY
 
+  sauce:
+    name: Make sauce
+    needs: [dough, toppings]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make sauce
+        run: |
+          echo "### Sauce :pizza:" >> $GITHUB_STEP_SUMMARY
+          echo "Our sauce? You came here for our sauce? I can tell you where I buy it!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Today's topping is going to be... ${{ secrets.SAUCE }}" >> $GITHUB_STEP_SUMMARY
+
   # This workflow contains a single job called "build"
-  build:
-    needs: [greet, dough, toppings]
+  preheat:
+    name: Add fire to oven
+    needs: [dough, toppings]
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
