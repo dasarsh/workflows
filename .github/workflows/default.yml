@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   greet:
-    name: ':older_man: Welcome customer'
+    name: "👴👵 Welcome customer"
     runs-on: ubuntu-latest
     steps:
       - name: Say Hello to whoever is reading this
@@ -31,7 +31,7 @@ jobs:
           echo "Ready? Good thing we have staff in this pizzeria... Okay it's just me and my wife." >> $GITHUB_STEP_SUMMARY
 
   dough:
-    name: Make dough
+    name: "👵 Make dough"
     needs: greet
     runs-on: ubuntu-latest
     steps:
@@ -43,7 +43,7 @@ jobs:
           echo "Today's crust is going to be... a secret!" >> $GITHUB_STEP_SUMMARY
 
   toppings:
-    name: Make toppings
+    name: "👴 Make toppings"
     needs: greet
     runs-on: ubuntu-latest
     steps:
@@ -55,7 +55,7 @@ jobs:
           echo "Today's topping is going to be... a surprise!" >> $GITHUB_STEP_SUMMARY
 
   proof-dough:
-    name: Proof dough
+    name: "👵 Proof dough"
     needs: dough
     runs-on: ubuntu-latest
     steps:
@@ -67,7 +67,7 @@ jobs:
           echo "Look, I have proof!" >> $GITHUB_STEP_SUMMARY
 
   sauce:
-    name: Make sauce
+    name: "👵 Make sauce"
     needs: proof-dough
     runs-on: ubuntu-latest
     steps:
@@ -79,7 +79,7 @@ jobs:
           echo "Today's sauce is going to be... wouldn't you like to know!" >> $GITHUB_STEP_SUMMARY
 
   pat-dog:
-    name: Pat dog
+    name: "👵 Pat dog"
     needs: sauce
     runs-on: ubuntu-latest
     steps:
@@ -88,7 +88,7 @@ jobs:
           echo "### Have you met Gelato? :dog:" >> $GITHUB_STEP_SUMMARY
 
   charge-customer:
-    name: Charge customer
+    name: "👵 Charge customer"
     needs: pat-dog
     runs-on: ubuntu-latest
     steps:
@@ -100,7 +100,7 @@ jobs:
           echo "No we don't accept Bitcoin here sorry." >> $GITHUB_STEP_SUMMARY
 
   gather-wood:
-    name: Get wood from out back
+    name: "👴 Get wood from out back"
     needs: [dough, toppings]
     runs-on: ubuntu-latest
     steps:
@@ -110,7 +110,7 @@ jobs:
           echo "Oh no wait, let me get some wood for this oven." >> $GITHUB_STEP_SUMMARY
 
   preheat:
-    name: Get oven to temp
+    name: "👴 Get oven to temp"
     needs: gather-wood
     runs-on: ubuntu-latest
 
@@ -125,7 +125,7 @@ jobs:
           echo "Should be ready soon..." >> $GITHUB_STEP_SUMMARY
 
   cook:
-    name: Cook!
+    name: "👴 Cook!"
     needs: preheat
     runs-on: ubuntu-latest
 
@@ -144,7 +144,7 @@ jobs:
           echo "- ${{ secrets.TOPPINGS }} for toppings" >> $GITHUB_STEP_SUMMARY
 
   farewell:
-    name: Farewell!
+    name: "👴👵🐶 Farewell!"
     needs: [cook, charge-customer]
     runs-on: ubuntu-latest
 
