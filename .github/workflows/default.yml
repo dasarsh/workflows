@@ -75,7 +75,8 @@ jobs:
     environment: development
 
     steps:
-      run: |
+      - name: Make sauce
+        run: |
           echo "### Oven Temp :pizza:" >> $GITHUB_STEP_SUMMARY
           echo "We need our ol' trusty wood-fired oven to be as hot hot hot!" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
