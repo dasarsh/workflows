@@ -54,9 +54,21 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Today's topping is going to be... a surprise!" >> $GITHUB_STEP_SUMMARY
 
+  proof-dough:
+    name: Proof dough
+    needs: [dough]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Proof dough
+        run: |
+          echo "### Proof dough :pizza:" >> $GITHUB_STEP_SUMMARY
+          echo "It's not ready to eat just yet! You don't trust me?" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Look, I have proof!" >> $GITHUB_STEP_SUMMARY
+
   sauce:
     name: Make sauce
-    needs: [dough, toppings]
+    needs: [proof-dough]
     runs-on: ubuntu-latest
     steps:
       - name: Make sauce
@@ -105,6 +117,7 @@ jobs:
           echo "We did it! Now we just have to wait for this pie to come out." >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Here it is! Your beautiful pizza consists of:" >> $GITHUB_STEP_SUMMARY
+          echo "# ***REDACTED***" >> $GITHUB_STEP_SUMMARY
           echo "- ${{ secrets.CRUST }} crust" >> $GITHUB_STEP_SUMMARY
           echo "- ${{ secrets.SAUCE }} sauce" >> $GITHUB_STEP_SUMMARY
           echo "- ${{ secrets.TOPPINGS }} for toppings" >> $GITHUB_STEP_SUMMARY
