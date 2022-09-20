@@ -36,13 +36,24 @@ jobs:
       - name: Make dough
         run: |
           echo "### Dough :pizza:" >> $GITHUB_STEP_SUMMARY
-          echo "Flour, water, yeast and mix" >> $GITHUB_STEP_SUMMARY
+          echo "Flour, water, yeast, oil, mix and knead. And also let it proof!" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "And also let it proof!" >> $GITHUB_STEP_SUMMARY
+          echo "Today's crust is going to be... ${{ secrets.CRUST }}" >> $GITHUB_STEP_SUMMARY
+
+  toppings:
+    needs: greet
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make toppings
+        run: |
+          echo "### Toppings :pizza:" >> $GITHUB_STEP_SUMMARY
+          echo "We actually have a secret topping, let me get it. Maybe it'll be polarising." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Today's topping is going to be... ${{ secrets.TOPPINGS }}" >> $GITHUB_STEP_SUMMARY
 
   # This workflow contains a single job called "build"
   build:
-    needs: [greet, dough]
+    needs: [greet, dough, toppings]
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
