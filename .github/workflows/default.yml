@@ -101,7 +101,7 @@ jobs:
     steps:
       - name: Cook the pizza
         run: |
-          echo "### Oven Temp :pizza:" >> $GITHUB_STEP_SUMMARY
+          echo "### Cook :pizza:" >> $GITHUB_STEP_SUMMARY
           echo "We did it! Now we just have to wait for this pie to come out." >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Here it is! Your beautiful pizza consists of:" >> $GITHUB_STEP_SUMMARY
@@ -110,3 +110,16 @@ jobs:
           echo "- ${{ secrets.TOPPINGS }} for toppings" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Come back again, won't ya!" >> $GITHUB_STEP_SUMMARY
+
+  farewell:
+    name: Farewell!
+    needs: [cook]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Farewell the customer
+        run: |
+          echo "### Thanks for coming! :pizza:" >> $GITHUB_STEP_SUMMARY
+          echo "${{ secrets.CRUST }} crust"
+          echo "${{ secrets.SAUCE }} sauce"
+          echo "${{ secrets.TOPPINGS }} for toppings"
