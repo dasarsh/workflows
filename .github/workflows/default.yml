@@ -68,7 +68,7 @@ jobs:
 
   gather-wood:
     name: Get wood from out back
-    needs: [sauce]
+    needs: [dough, toppings]
     runs-on: ubuntu-latest
     steps:
       - name: Get wood from out back
@@ -84,9 +84,24 @@ jobs:
     environment: development
 
     steps:
-      - name: Make sauce
+      - name: Preheat oven
         run: |
           echo "### Oven Temp :pizza:" >> $GITHUB_STEP_SUMMARY
           echo "We need our ol' trusty wood-fired oven to be as hot hot hot!" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Should be ready soon..." >> $GITHUB_STEP_SUMMARY
+
+  cook:
+    name: Cook!
+    needs: [preheat]
+    runs-on: ubuntu-latest
+
+    environment: development
+
+    steps:
+      - name: Cook the pizza
+        run: |
+          echo "### Oven Temp :pizza:" >> $GITHUB_STEP_SUMMARY
+          echo "We did it! Now we just have to wait for this pie to come out." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "They say the pizza cooks faster the better you make it! >> $GITHUB_STEP_SUMMARY
