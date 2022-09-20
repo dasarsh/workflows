@@ -132,6 +132,7 @@ jobs:
     environment: development
 
     steps:
+      - uses: actions/checkout@v2
       - name: Cook the pizza
         run: |
           echo "### Cook :pizza:" >> $GITHUB_STEP_SUMMARY
@@ -142,6 +143,10 @@ jobs:
           echo "- ${{ secrets.CRUST }} crust" >> $GITHUB_STEP_SUMMARY
           echo "- ${{ secrets.SAUCE }} sauce" >> $GITHUB_STEP_SUMMARY
           echo "- ${{ secrets.TOPPINGS }} for toppings" >> $GITHUB_STEP_SUMMARY
+      
+      - name: Create pizza
+        run: |
+          echo "##### ${{ secrets.CRUST }}> " > pizza.md
 
   farewell:
     name: "👴👵🐶 Farewell!"
