@@ -56,7 +56,7 @@ jobs:
 
   proof-dough:
     name: Proof dough
-    needs: [dough]
+    needs: dough
     runs-on: ubuntu-latest
     steps:
       - name: Proof dough
@@ -68,7 +68,7 @@ jobs:
 
   sauce:
     name: Make sauce
-    needs: [proof-dough]
+    needs: proof-dough
     runs-on: ubuntu-latest
     steps:
       - name: Make sauce
@@ -80,7 +80,7 @@ jobs:
 
   pat-dog:
     name: Pat dog
-    needs: [sauce]
+    needs: sauce
     runs-on: ubuntu-latest
     steps:
       - name: Pat dog
@@ -89,7 +89,7 @@ jobs:
 
   charge-customer:
     name: Charge customer
-    needs: [pat-dog]
+    needs: pat-dog
     runs-on: ubuntu-latest
     steps:
       - name: Charge customer
@@ -111,7 +111,7 @@ jobs:
 
   preheat:
     name: Get oven to temp
-    needs: [gather-wood]
+    needs: gather-wood
     runs-on: ubuntu-latest
 
     environment: development
@@ -126,7 +126,7 @@ jobs:
 
   cook:
     name: Cook!
-    needs: [preheat]
+    needs: preheat
     runs-on: ubuntu-latest
 
     environment: development
@@ -142,12 +142,10 @@ jobs:
           echo "- ${{ secrets.CRUST }} crust" >> $GITHUB_STEP_SUMMARY
           echo "- ${{ secrets.SAUCE }} sauce" >> $GITHUB_STEP_SUMMARY
           echo "- ${{ secrets.TOPPINGS }} for toppings" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Come back again, won't ya!" >> $GITHUB_STEP_SUMMARY
 
   farewell:
     name: Farewell!
-    needs: [cook]
+    needs: [cook, charge-customer]
     runs-on: ubuntu-latest
 
     steps:
