@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   greet:
-    name: Welcome customer
+    name: :older_man: Welcome customer
     runs-on: ubuntu-latest
     steps:
       - name: Say Hello to whoever is reading this
