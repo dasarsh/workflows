@@ -126,7 +126,7 @@ jobs:
 
   cook:
     name: "👴 Cook!"
-    needs: preheat
+    needs: gather-wood
     runs-on: ubuntu-latest
 
     environment: development
