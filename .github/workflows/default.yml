@@ -64,12 +64,21 @@ jobs:
           echo "### Sauce :pizza:" >> $GITHUB_STEP_SUMMARY
           echo "Our sauce? You came here for our sauce? I can tell you where I buy it!" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Today's topping is going to be... ${{ secrets.SAUCE }}" >> $GITHUB_STEP_SUMMARY
+          echo "Today's sauce is going to be... ${{ secrets.SAUCE }}" >> $GITHUB_STEP_SUMMARY
 
-  # This workflow contains a single job called "build"
+  gather-wood:
+    name: Get wood from out back
+    needs: [sauce]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get wood from out back
+        run: |
+          echo "### Almost fire time :pizza:" >> $GITHUB_STEP_SUMMARY
+          echo "Oh no wait, let me get some wood for this oven." >> $GITHUB_STEP_SUMMARY
+
   preheat:
     name: Add wood to oven
-    needs: [dough, toppings]
+    needs: [gather-wood]
     runs-on: ubuntu-latest
 
     environment: development
