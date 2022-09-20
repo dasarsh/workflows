@@ -78,6 +78,27 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Today's sauce is going to be... wouldn't you like to know!" >> $GITHUB_STEP_SUMMARY
 
+  pat-dog:
+    name: Pat dog
+    needs: [sauce]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pat dog
+        run: |
+          echo "### Have you met Gelato? :dog:" >> $GITHUB_STEP_SUMMARY
+
+  charge-customer:
+    name: Charge customer
+    needs: [pat-dog]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Charge customer
+        run: |
+          echo "### At the till :receipt:" >> $GITHUB_STEP_SUMMARY
+          echo "Here's your receipt!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "No we don't accept Bitcoin here sorry." >> $GITHUB_STEP_SUMMARY
+
   gather-wood:
     name: Get wood from out back
     needs: [dough, toppings]
