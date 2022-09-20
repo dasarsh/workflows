@@ -40,7 +40,7 @@ jobs:
           echo "### Dough :pizza:" >> $GITHUB_STEP_SUMMARY
           echo "Flour, water, yeast, oil, mix and knead. And also let it proof!" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Today's crust is going to be... ${{ secrets.CRUST }}" >> $GITHUB_STEP_SUMMARY
+          echo "Today's crust is going to be... a secret!" >> $GITHUB_STEP_SUMMARY
 
   toppings:
     name: Make toppings
@@ -77,7 +77,7 @@ jobs:
           echo "Oh no wait, let me get some wood for this oven." >> $GITHUB_STEP_SUMMARY
 
   preheat:
-    name: Add wood to oven
+    name: Get oven to temp
     needs: [gather-wood]
     runs-on: ubuntu-latest
 
@@ -104,4 +104,9 @@ jobs:
           echo "### Oven Temp :pizza:" >> $GITHUB_STEP_SUMMARY
           echo "We did it! Now we just have to wait for this pie to come out." >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "They say the pizza cooks faster the better you make it! >> $GITHUB_STEP_SUMMARY
+          echo "Here it is! Your beautiful pizza consists of:" >> $GITHUB_STEP_SUMMARY
+          echo "- ${{ secrets.CRUST }} crust" >> $GITHUB_STEP_SUMMARY
+          echo "- ${{ secrets.SAUCE }} sauce" >> $GITHUB_STEP_SUMMARY
+          echo "- ${{ secrets.TOPPINGS }} for toppings" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Come back again, won't ya!" >> $GITHUB_STEP_SUMMARY
