@@ -16,6 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   greet:
+    runs-on: ubuntu-latest
     steps:
       - name: Say Hello to whoever is reading this
         run: echo "### Recipe time! :pizza:" >> $GITHUB_STEP_SUMMARY
