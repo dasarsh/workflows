@@ -126,7 +126,7 @@ jobs:
 
   cook:
     name: "👴 Cook!"
-    needs: gather-wood
+    needs: preheat
     runs-on: ubuntu-latest
 
     environment: development
@@ -145,7 +145,7 @@ jobs:
 
   farewell:
     name: "👴👵🐶 Farewell!"
-    needs: [preheat, cook, charge-customer]
+    needs: [cook, charge-customer]
     runs-on: ubuntu-latest
 
     steps:
