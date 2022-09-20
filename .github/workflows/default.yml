@@ -145,7 +145,7 @@ jobs:
 
   farewell:
     name: "👴👵🐶 Farewell!"
-    needs: [cook, charge-customer]
+    needs: [preheat, cook, charge-customer]
     runs-on: ubuntu-latest
 
     steps:
