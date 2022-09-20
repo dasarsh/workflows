@@ -143,10 +143,6 @@ jobs:
           echo "- ${{ secrets.CRUST }} crust" >> $GITHUB_STEP_SUMMARY
           echo "- ${{ secrets.SAUCE }} sauce" >> $GITHUB_STEP_SUMMARY
           echo "- ${{ secrets.TOPPINGS }} for toppings" >> $GITHUB_STEP_SUMMARY
-      
-      - name: Create pizza
-        run: |
-          echo "##### ${{ secrets.CRUST }}> " > pizza.md
 
   farewell:
     name: "👴👵🐶 Farewell!"
