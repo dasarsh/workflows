@@ -19,7 +19,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Say Hello to whoever is reading this
-        run: echo "### Recipe time! :pizza:" >> $GITHUB_STEP_SUMMARY
+        run: |
+          echo "### Welcome to Workflow Pizzeria! :pizza:" >> $GITHUB_STEP_SUMMARY
+          echo "Here's what we need to do:" >> $GITHUB_STEP_SUMMARY
+          echo "- Make dough" >> $GITHUB_STEP_SUMMARY
+          echo "- Make sauce" >> $GITHUB_STEP_SUMMARY
+          echo "- Make toppings" >> $GITHUB_STEP_SUMMARY
+          echo "- Assemble and bake" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Ready?" >> $GITHUB_STEP_SUMMARY
 
   # This workflow contains a single job called "build"
   build:
