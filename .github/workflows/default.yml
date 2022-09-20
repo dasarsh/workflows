@@ -52,7 +52,7 @@ jobs:
           echo "### Toppings :pizza:" >> $GITHUB_STEP_SUMMARY
           echo "We actually have a secret topping, let me get it. Maybe it'll be polarising." >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Today's topping is going to be... ${{ secrets.TOPPINGS }}" >> $GITHUB_STEP_SUMMARY
+          echo "Today's topping is going to be... a surprise!" >> $GITHUB_STEP_SUMMARY
 
   sauce:
     name: Make sauce
@@ -64,7 +64,7 @@ jobs:
           echo "### Sauce :pizza:" >> $GITHUB_STEP_SUMMARY
           echo "Our sauce? You came here for our sauce? I can tell you where I buy it!" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Today's sauce is going to be... ${{ secrets.SAUCE }}" >> $GITHUB_STEP_SUMMARY
+          echo "Today's sauce is going to be... wouldn't you like to know!" >> $GITHUB_STEP_SUMMARY
 
   gather-wood:
     name: Get wood from out back
@@ -87,7 +87,7 @@ jobs:
       - name: Preheat oven
         run: |
           echo "### Oven Temp :pizza:" >> $GITHUB_STEP_SUMMARY
-          echo "We need our ol' trusty wood-fired oven to be as hot hot hot!" >> $GITHUB_STEP_SUMMARY
+          echo "We need our ol' trusty wood-fired oven to be hot hot hot!" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Should be ready soon..." >> $GITHUB_STEP_SUMMARY
 
